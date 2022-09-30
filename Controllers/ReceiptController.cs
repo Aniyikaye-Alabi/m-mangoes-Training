@@ -1,14 +1,16 @@
-﻿using GenerateReceipt.Models;
+﻿using GenerateReceipt.Interfaces;
+using GenerateReceipt.Models;
 using GenerateReceipt.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Reflection;
 
 namespace GenerateReceipt.Controllers
 {
     public class ReceiptController : Controller
     {
         // GET: ReceiptController
-        public ActionResult Index()
+        public ActionResult Index(CustomerViewList? receiptToken)
         {
             //Receipt<int, string> tellerReceipt = new Receipt<int, string>();
 
@@ -45,15 +47,22 @@ namespace GenerateReceipt.Controllers
                            ReceiptIdToken = obj.ReceiptIdToken,
                            AmountPaid = obj.AmountPaid
                        };
+            var realdata = data.ToList();
             
 
-            return View(data);
+            return View(realdata);
         }
 
         // GET: ReceiptController/Details/5
         public ActionResult Details(int id)
         {
+            RunQueryC queryMsg = new RunQueryC();
+
+            var data = queryMsg.Run();
+            ViewBag.Message = data;
+
             return View();
+            //return Content(data);
         }
 
         // GET: ReceiptController/Create
