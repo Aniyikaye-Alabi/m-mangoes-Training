@@ -1,4 +1,10 @@
+using GenerateReceipt.Interfaces;
+using GenerateReceipt.Models;
+
 var builder = WebApplication.CreateBuilder(args);
+
+//My Servies
+builder.Services.AddSingleton<Idate,ShortDate>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

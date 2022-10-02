@@ -9,6 +9,13 @@ namespace GenerateReceipt.Controllers
 {
     public class ReceiptController : Controller
     {
+        private Idate _date { get; set; }
+
+        public ReceiptController(Idate date)
+        {
+            _date = date;
+        }
+
         // GET: ReceiptController
         public ActionResult Index(CustomerViewList? receiptToken)
         {
@@ -63,6 +70,13 @@ namespace GenerateReceipt.Controllers
 
             return View();
             //return Content(data);
+        }
+
+        public ActionResult ShowDate()
+        {
+            var data = _date.GetDate();
+
+            return Content(data);
         }
 
         // GET: ReceiptController/Create
