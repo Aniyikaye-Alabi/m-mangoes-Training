@@ -1,4 +1,6 @@
-﻿using GenerateReceipt.Interfaces;
+﻿using GenerateReceipt.Data;
+using GenerateReceipt.ImplClasses;
+using GenerateReceipt.Interfaces;
 using GenerateReceipt.Models;
 using GenerateReceipt.ViewModels;
 using Microsoft.AspNetCore.Http;
@@ -10,10 +12,12 @@ namespace GenerateReceipt.Controllers
     public class ReceiptController : Controller
     {
         private Idate _date { get; set; }
+        private GenerateDbContext _db {get; set;}
 
-        public ReceiptController(Idate date)
+        public ReceiptController(Idate date, GenerateDbContext db)
         {
             _date = date;
+            _db = db;
         }
 
         // GET: ReceiptController
@@ -79,10 +83,19 @@ namespace GenerateReceipt.Controllers
             return Content(data);
         }
 
+        //CreateNewReceipt
         // GET: ReceiptController/Create
         public ActionResult Create()
         {
-            return View();
+            //List<Receipt<int, string>> newTellerList = new List<Receipt<int, string>>() {
+            //    new Receipt<int, string> { ReceiptIdToken = 5, AmountPaid = "Two thousand" },
+            //    new Receipt<int, string> { ReceiptIdToken = 200, AmountPaid = "Twenty thousand" },
+            //};
+
+            //var data = _db.Add(newTellerList.ToList());
+
+            return Content("Data Inserted Successfully");
+            //return View();
         }
 
         // POST: ReceiptController/Create

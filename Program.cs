@@ -1,10 +1,15 @@
+using GenerateReceipt.Data;
+using GenerateReceipt.ImplClasses;
 using GenerateReceipt.Interfaces;
-using GenerateReceipt.Models;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 //My Servies
 builder.Services.AddSingleton<Idate,ShortDate>();
+
+builder.Services.AddDbContext<GenerateDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("GenerateDbContext")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

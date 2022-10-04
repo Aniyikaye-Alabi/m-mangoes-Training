@@ -1,6 +1,6 @@
 ﻿using GenerateReceipt.Interfaces;
 
-namespace GenerateReceipt.Models
+namespace GenerateReceipt.ImplClasses
 {
     public class ShortDate : Idate
     {
