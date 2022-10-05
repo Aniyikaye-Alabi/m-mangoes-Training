@@ -1,12 +1,14 @@
 using GenerateReceipt.Data;
 using GenerateReceipt.ImplClasses;
 using GenerateReceipt.Interfaces;
+using GenerateReceipt.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 //My Servies
-builder.Services.AddSingleton<Idate,ShortDate>();
+builder.Services.AddTransient<Idate,ShortDate>();
+builder.Services.AddTransient<Icrud,Crud>();
 
 builder.Services.AddDbContext<GenerateDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("GenerateDbContext")));

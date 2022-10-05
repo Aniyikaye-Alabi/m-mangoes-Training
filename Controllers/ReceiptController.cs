@@ -12,12 +12,14 @@ namespace GenerateReceipt.Controllers
     public class ReceiptController : Controller
     {
         private Idate _date { get; set; }
+        private Icrud _crud { get; set; }
         private GenerateDbContext _db {get; set;}
 
-        public ReceiptController(Idate date, GenerateDbContext db)
+        public ReceiptController(Idate date, GenerateDbContext db, Icrud crud)
         {
             _date = date;
             _db = db;
+            this._crud = crud;
         }
 
         // GET: ReceiptController
@@ -94,7 +96,9 @@ namespace GenerateReceipt.Controllers
 
             //var data = _db.Add(newTellerList.ToList());
 
-            return Content("Data Inserted Successfully");
+            var data = _crud.GetReceipt();
+
+            return View(data);
             //return View();
         }
 
