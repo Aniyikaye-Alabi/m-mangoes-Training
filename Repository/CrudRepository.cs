@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GenerateReceipt.Repository
 {
-    public class Crud : Icrud
+    public class CrudRepository : ICrudRepository
     {
         private GenerateDbContext _db;
-        public Crud(GenerateDbContext db)
+        public CrudRepository(GenerateDbContext db)
         {
             _db = db;
         }

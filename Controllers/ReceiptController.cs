@@ -11,11 +11,11 @@ namespace GenerateReceipt.Controllers
 {
     public class ReceiptController : Controller
     {
-        private Idate _date { get; set; }
-        private Icrud _crud { get; set; }
+        private IDate _date { get; set; }
+        private ICrudRepository _crud { get; set; }
         private GenerateDbContext _db {get; set;}
 
-        public ReceiptController(Idate date, GenerateDbContext db, Icrud crud)
+        public ReceiptController(IDate date, GenerateDbContext db, ICrudRepository crud)
         {
             _date = date;
             _db = db;

@@ -1,6 +1,6 @@
 ﻿namespace GenerateReceipt.Interfaces
 {
-    public interface Idate
+    public interface IDate
     {
         // returnType MethodName();
         string GetDate();

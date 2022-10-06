@@ -2,7 +2,7 @@
 
 namespace GenerateReceipt.ImplClasses
 {
-    public class ShortDate : Idate
+    public class ShortDate : IDate
     {
         public string date { get; set; }
 

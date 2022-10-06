@@ -2,7 +2,7 @@
 
 namespace GenerateReceipt.Interfaces
 {
-    public interface Icrud
+    public interface ICrudRepository
     {
         List<Receipt<int, string>> GetReceipt();
     }

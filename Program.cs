@@ -7,8 +7,8 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 //My Servies
-builder.Services.AddTransient<Idate,ShortDate>();
-builder.Services.AddTransient<Icrud,Crud>();
+builder.Services.AddTransient<IDate, ShortDate>();
+builder.Services.AddTransient<ICrudRepository, CrudRepository>();
 
 builder.Services.AddDbContext<GenerateDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("GenerateDbContext")));
