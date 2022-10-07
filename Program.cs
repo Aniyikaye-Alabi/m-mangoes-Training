@@ -1,3 +1,4 @@
+using GenerateReceipt.BLL;
 using GenerateReceipt.Data;
 using GenerateReceipt.ImplClasses;
 using GenerateReceipt.Interfaces;
@@ -9,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 //My Servies
 builder.Services.AddTransient<IDate, ShortDate>();
 builder.Services.AddTransient<ICrudRepository, CrudRepository>();
+builder.Services.AddTransient<ICrudBusinessService, CrudBusinessService>();
 
 builder.Services.AddDbContext<GenerateDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("GenerateDbContext")));

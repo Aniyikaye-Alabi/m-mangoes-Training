@@ -2,7 +2,7 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    @model List<Receipt<int, string>>
+    @model dynamic
 
 }
 <style>
@@ -23,7 +23,7 @@
         <th>Receipt ID</th>
         <th>Amount Paid</th>
     </tr>
-    @foreach (var item in Model)
+    @foreach (var item in ViewBag.AllReceipts)
     {
         <tr>
             <td>@item.ReceiptIdToken</td>

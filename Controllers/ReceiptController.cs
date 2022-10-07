@@ -12,10 +12,10 @@ namespace GenerateReceipt.Controllers
     public class ReceiptController : Controller
     {
         private IDate _date { get; set; }
-        private ICrudRepository _crud { get; set; }
+        private ICrudBusinessService _crud { get; set; }
         private GenerateDbContext _db {get; set;}
 
-        public ReceiptController(IDate date, GenerateDbContext db, ICrudRepository crud)
+        public ReceiptController(IDate date, GenerateDbContext db, ICrudBusinessService crud)
         {
             _date = date;
             _db = db;
@@ -96,10 +96,10 @@ namespace GenerateReceipt.Controllers
 
             //var data = _db.Add(newTellerList.ToList());
 
-            var data = _crud.GetReceipt();
+            var data = _crud.GetAllReceipts();
+            ViewBag.AllReceipts = data;
 
-            return View(data);
-            //return View();
+            return View();
         }
 
         // POST: ReceiptController/Create
