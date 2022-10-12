@@ -13,6 +13,20 @@ namespace GenerateReceipt.Repository
             _db = db;
         }
 
+        public Receipt<int, string> Create(Receipt<int, string> receipt)
+        {
+            _db.Add(receipt);
+            _db.SaveChanges();
+
+            return receipt;
+        }
+
+        public Receipt<int, string> GetAReceipt(int id)
+        {
+            var receiptData = _db.Receipts.FirstOrDefault(x => x.ReceiptIdToken == id);
+            return receiptData;
+        }
+
         public List<Receipt<int, string>> GetReceipt()
         {
            var data = _db.Receipts.ToList();

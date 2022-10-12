@@ -31,6 +31,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjZWlwdFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/adalabi/source/repos/m-mangoes-Training/Views/Receipt/GetAllReceipts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjZWlwdFxHZXRBbGxSZWNlaXB0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/adalabi/source/repos/m-mangoes-Training/Views/Receipt/GetAReceipt.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjZWlwdFxHZXRBUmVjZWlwdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/adalabi/source/repos/m-mangoes-Training/Views/Receipt/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjZWlwdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

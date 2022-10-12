@@ -89,6 +89,11 @@ namespace GenerateReceipt.Controllers
         // GET: ReceiptController/Create
         public ActionResult Create()
         {
+            return View();
+        }
+
+        public ActionResult GetAllReceipts()
+        {
             //List<Receipt<int, string>> newTellerList = new List<Receipt<int, string>>() {
             //    new Receipt<int, string> { ReceiptIdToken = 5, AmountPaid = "Two thousand" },
             //    new Receipt<int, string> { ReceiptIdToken = 200, AmountPaid = "Twenty thousand" },
@@ -102,17 +107,26 @@ namespace GenerateReceipt.Controllers
             return View();
         }
 
+        public ActionResult GetAReceipt(int id)
+        {
+            var data = _crud.GetAReceipt(2);
+            return View(data);
+        }
+
         // POST: ReceiptController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Receipt<int,string> receipt)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                _crud.CreateReceipt(receipt);
+                //return RedirectToAction(nameof(Index));
+                return Content("Data Inserted Successfully");
             }
             catch
             {
+                throw;
                 return View();
             }
         }

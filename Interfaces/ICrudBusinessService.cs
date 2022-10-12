@@ -7,5 +7,7 @@ namespace GenerateReceipt.Interfaces
     {
         /*ActionResult<dynamic>*/
         List<Receipt<int, string>> GetAllReceipts();
+        Receipt<int, string> GetAReceipt(int id);
+        Receipt<int, string> CreateReceipt(Receipt<int, string> receipt);
     }
 }
