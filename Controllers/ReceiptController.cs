@@ -15,7 +15,7 @@ namespace GenerateReceipt.Controllers
         private ICrudBusinessService _crud { get; set; }
         private GenerateDbContext _db {get; set;}
 
-        public ReceiptController(IDate date, GenerateDbContext db, ICrudBusinessService crud)
+        public ReceiptController(IDate date, GenerateDbContext? db, ICrudBusinessService? crud)
         {
             _date = date;
             _db = db;
